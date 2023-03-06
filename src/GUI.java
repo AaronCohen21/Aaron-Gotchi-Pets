@@ -34,7 +34,9 @@ import javax.swing.border.LineBorder;
 
 @SuppressWarnings("serial")
 public class GUI implements WindowListener, java.io.Serializable, ActionListener {
-	
+
+	public static final boolean DEBUG_MODE = false;	//if true this will display the time machine button
+
 	private JFrame frame;
 	private JPanel panel;
 	
@@ -545,11 +547,13 @@ public class GUI implements WindowListener, java.io.Serializable, ActionListener
 			playButton.addActionListener(this);
 			
 			//time machine
-			addHour = new JButton("Add Hour");
-			addHour.setBounds(156, 190, 104, 29);
-			addHour.addActionListener(this);
-			if (pet.isAlive()) {
-				displayPanel.add(addHour);
+			if (DEBUG_MODE) {
+				addHour = new JButton("Add Hour");
+				addHour.setBounds(156, 190, 104, 29);
+				addHour.addActionListener(this);
+				if (pet.isAlive()) {
+					displayPanel.add(addHour);
+				}
 			}
 			
 			//Edit Pet Button
